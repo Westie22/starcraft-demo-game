@@ -22,18 +22,18 @@ class AttackUnit:
         self.damage = damage
 
     def attack(self, location):
-        print("{0} : {1} towards attacking. [Lvl. of attacking is {2}]".format(self.name, location, self.damage))
+        print("{0} : from {1} attacking. [Lvl. of attacking is {2}]".format(self.name, location, self.damage))
 
     def damaged(self, damage):
-        print("{0} : {1} is damaged.".format(self.name, damage))
+        print("{0} : {1} damaged.".format(self.name, damage))
         self.hp -= damage
-        print("{0} : current Lvl of attacking is {1}.".format(self.name, self.hp))
+        print("{0} : Current Lvl of attacking is {1}.".format(self.name, self.hp))
         if self.hp <= 0:
-            print("{0} : is destroyed.".format(self.name))
+            print("{0} is destroyed.".format(self.name))
 
 # Firebat : Attacking unit, ability of fire-gun
 firebat1 = AttackUnit("Firebat", 50, 16)
-firebat1.attack("5 O'clock")
+firebat1.attack("From 5 o'clock")
 
 # Attacked twice
 firebat1.damaged(25)
