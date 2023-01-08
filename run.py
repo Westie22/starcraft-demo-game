@@ -2,7 +2,7 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
-# Create Marine : attack unit, solder, ability of shooting
+# General Unit
 
 class Unit:
     def __init__(self, name, hp, damage):
@@ -10,9 +10,31 @@ class Unit:
         self.hp = hp
         self.damage = damage
         print(f"{name} unit is created.")
-        print(f"Strength {hp}, Lvl. of attacking {damage}")
+        print(f"Strength {hp}, Lvl. of attacking is {damage}")
+"""
+Using method overriding
+"""
+# Attack Unit
+class AttackUnit:
+    def __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
 
+    def attack(self, location):
+        print("{0} : {1} towards attacking. [Lvl. of attacking is {2}]".format(self.name, location, self.damage))
 
-marine1 = Unit("Marine", 40, 5)
-marine2 = Unit("Marine", 40, 5)
-tank = Unit("Tank", 150, 35)
+    def damaged(self, damage):
+        print("{0} : {1} is damaged.".format(self.name, damage))
+        self.hp -= damage
+        print("{0} : current Lvl of attacking is {1}.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{0} : is destroyed.".format(self.name))
+
+# Firebat : Attacking unit, ability of fire-gun
+firebat1 = AttackUnit("Firebat", 50, 16)
+firebat1.attack("5 O'clock")
+
+# Attacked twice
+firebat1.damaged(25)
+firebat1.damaged(25)
