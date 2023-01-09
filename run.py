@@ -5,20 +5,17 @@
 # General Unit
 
 class Unit:
-    def __init__(self, name, hp, damage):
+    def __init__(self, name, hp):
         self.name = name
         self.hp = hp
-        self.damage = damage
-        print(f"{name} unit is created.")
-        print(f"Strength {hp}, Lvl. of attacking is {damage}")
+       
 """
 Using method overriding
 """
 # Attack Unit
-class AttackUnit:
+class AttackUnit(Unit):
     def __init__(self, name, hp, damage):
-        self.name = name
-        self.hp = hp
+        Unit.__init__(self, name, hp)
         self.damage = damage
 
     def attack(self, location):
