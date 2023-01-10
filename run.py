@@ -44,3 +44,28 @@ class Marine(AttackUnit):
             print(f"{name} is using stimpack. HP decrease by 10")
         else:
             print(f"{name} is not able to use stimpack with lack of HP")
+
+# Tank
+class Tank(AttackUnit):
+    # Siege mode : No ability to move, it sticks on the ground and attacking more powerfully
+    siege_developed = False # wether siege mode is developing (a class variable)
+
+    def __init__(self):
+        AttackUnit.__init__(self, "Tank", 150, 1, 35) # name, hp, speed, Lvl of attacking
+        self.siege_mode = False # (Easy) the siege mode
+
+    # Siege Mode
+    def set_siege_mode(self):
+        if Tank.siege_developed == False # leaving the method when siege_mode is not developing
+            return
+
+        # currently it's not siege_mode
+        if self.siege_mode == False:
+            print(f"{name} : Switching to Siege Mode")
+            self.damage *= 2 # hp increases twice
+            self.siege_mode = True # Set siege mode
+        # currently it's siege_mode
+        else:
+            print(f"{name} : Clearing the Siege Mode")
+            self.damage /= 2 # hp decreases to half
+            self.siege_mode = False # Clear siege mode
