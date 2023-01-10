@@ -31,3 +31,16 @@ class AttackUnit(Unit):
 
     def attack(self, location):
         print("Unit {0} is attacking from {1}. [Lvl. of attacking is {2}]".format(self.name, location, self.damage))
+
+# Marine
+class Marine(AttackUnit):
+    def __init__(self):
+        AttackUnit.__init__(self, "Marine", 40, 1, 5) # name, hp, speed, Lvl of attacking
+
+    # Stimpack : increasing moving speed but hp level decreases -10
+    def stimpack(self):
+        if self.hp > 10:
+            self.hp -= 10
+            print(f"{name} is using stimpack. HP decrease by 10")
+        else:
+            print(f"{name} is not able to use stimpack with lack of HP")
