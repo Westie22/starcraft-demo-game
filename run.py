@@ -25,12 +25,9 @@ Using method overriding
 """
 # Attack Unit
 class AttackUnit(Unit):
-    def __init__(self, name, hp, damage):
-        Unit.__init__(self, name, hp)
+    def __init__(self, name, hp, speed, damage):
+        Unit.__init__(self, name, hp, speed)
         self.damage = damage
 
     def attack(self, location):
-        print("{0} : from {1} attacking. [Lvl. of attacking is {2}]".format(self.name, location, self.damage))
-
-
-
+        print("Unit {0} is attacking from {1}. [Lvl. of attacking is {2}]".format(self.name, location, self.damage))
