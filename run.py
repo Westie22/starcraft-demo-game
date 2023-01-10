@@ -56,7 +56,7 @@ class Tank(AttackUnit):
 
     # Siege Mode
     def set_siege_mode(self):
-        if Tank.siege_developed == False # leaving the method when siege_mode is not developing
+        if Tank.siege_developed == False: # leaving the method when siege_mode is not developing
             return
 
         # currently it's not siege_mode
@@ -69,3 +69,21 @@ class Tank(AttackUnit):
             print(f"{name} : Clearing the Siege Mode")
             self.damage /= 2 # hp decreases to half
             self.siege_mode = False # Clear siege mode
+
+# Flyable function class
+class Flyable:
+    def __init__(self, flying_speed):
+        self.flying_speed = flying_speed
+    def fly(self, name, location):
+        print(f"{name} is flying toward {location}. Speed {flying_speed}")
+
+# Flyable Attack Unit
+class FlyableAttackUnit(AttackUnit, Flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        AttackUnit.__init__(self, name, hp, 0, damage) # with flying speed, there is no speed on the ground, it sets as 0
+        Flyable.__init__(self, flying_speed)
+
+    def move(self, location): # Initializong move from Unit class - overriding
+        print("Flyably Unit Moves")
+        self.fly(self.name, location)  
+
