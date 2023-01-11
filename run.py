@@ -1,10 +1,9 @@
 # Your code goes here.
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
-
-# General Unit
 from random import *
 
+# General Unit
 class Unit:
     def __init__(self, name, hp, speed):
         self.name = name
@@ -76,7 +75,7 @@ class Flyable:
     def __init__(self, flying_speed):
         self.flying_speed = flying_speed
     def fly(self, name, location):
-        print(f"{name} is flying toward {location}. Speed {flying_speed}")
+        print("{0} is flying toward {1}. Speed {2}".format(name, location, self.flying_speed))
 
 # Flyable Attack Unit
 class FlyableAttackUnit(AttackUnit, Flyable):
@@ -85,7 +84,7 @@ class FlyableAttackUnit(AttackUnit, Flyable):
         Flyable.__init__(self, flying_speed)
 
     def move(self, location): # Initializong move from Unit class - overriding
-        print("Flyably Unit Moves")
+        print("Flyable Unit is moving")
         self.fly(self.name, location)  
 
 # Another flyable attack unit Wraith that has a special skill called 'cloaking'
@@ -129,4 +128,19 @@ t2 = Tank()
 
 # Create 1 Wraith
 w1 = Wraith()
+
+# General units management (all created ones avbove, append)
+attack_units = []
+attack_units.append(m1)
+attack_units.append(m2)
+attack_units.append(m3)
+attack_units.append(t1)
+attack_units.append(t2)
+attack_units.append(w1)
+
+# All units are moving
+for unit in attack_units:
+    unit.move("2 O'clock")
+
+
 
