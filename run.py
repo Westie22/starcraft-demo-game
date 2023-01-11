@@ -87,3 +87,22 @@ class FlyableAttackUnit(AttackUnit, Flyable):
         print("Flyably Unit Moves")
         self.fly(self.name, location)  
 
+# Another flyable attack unit Wraith that has a special skill called 'cloaking'
+
+class Wraith(FlyableAttackUnit):
+    def __init__(self):
+        FlyableAttackUnit.__init__(self, "Wraith", 80, 20, 5) # hp, Lvl of attacking, flying speed
+        self.cloaked = False # cloaking mode(cleared)
+
+    def cloaking(self):
+        # when it's cloaking mode
+        if self.cloaked == True:
+            print(f"Clearing cloaking mode for {name}.")
+            self.cloaked == False
+            # when it's NOT cloaking mode
+        else:
+            print(f"Setting cloaking mode for {name}")
+            self.cloaked == True
+            
+
+
