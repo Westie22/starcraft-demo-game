@@ -3,6 +3,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 # General Unit
+from random import *
 
 class Unit:
     def __init__(self, name, hp, speed):
@@ -101,8 +102,31 @@ class Wraith(FlyableAttackUnit):
             self.cloaked == False
             # when it's NOT cloaking mode
         else:
-            print(f"Setting cloaking mode for {name}")
+            print(f"Setting cloaking mode for {name}.")
             self.cloaked == True
-            
 
+
+# Game start
+def game_start():
+    print("Start game!")
+
+# Game over
+def game_over():
+    print("Player: Good game!") 
+    print("[Player] left.")
+
+# Actual game starts
+game_start()
+
+# Create 3 Marines
+m1 = Marine()
+m2 = Marine()
+m3 = Marine()
+
+# Create 2 Tanks
+t1 = Tank()
+t2 = Tank()
+
+# Create 1 Wraith
+w1 = Wraith()
 
