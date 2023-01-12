@@ -41,9 +41,9 @@ class Marine(AttackUnit):
     def stimpack(self):
         if self.hp > 10:
             self.hp -= 10
-            print("{0} is using stimpack. HP decrease by 10")
+            print("{0} is using stimpack. HP decrease by 10".format(self.name))
         else:
-            print("{0} is not able to use stimpack with lack of HP")
+            print("{0} is not able to use stimpack with lack of HP".format(self.name))
 
 # Tank
 class Tank(AttackUnit):
@@ -97,11 +97,11 @@ class Wraith(FlyableAttackUnit):
     def cloaking(self):
         # when it's cloaking mode
         if self.cloaked == True:
-            print("Clearing cloaking mode for {0}.")
+            print("Clearing cloaking mode for {0}.".format(self.name))
             self.cloaked == False
             # when it's NOT cloaking mode
         else:
-            print("Setting cloaking mode for {0}.")
+            print("Setting cloaking mode for {0}.".format(self.name))
             self.cloaked == True
 
 
@@ -111,7 +111,7 @@ def game_start():
 
 # Game over
 def game_over():
-    print("Player: Good game!") 
+    print("[Player]: Good game!") 
     print("[Player] left.")
 
 # Actual game starts
