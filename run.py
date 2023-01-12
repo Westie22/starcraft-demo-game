@@ -1,9 +1,7 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
 from random import *
-
 # General Unit
+
+
 class Unit:
     def __init__(self, name, hp, speed):
         self.name = name
@@ -12,14 +10,18 @@ class Unit:
         print(f"Unit {name} is created.")
 
     def move(self, location):
-        print("{0} is moving toward {1} : Speed [{2}]".format(self.name, location, self.speed))
-       
+        print("{0} is moving toward {1} : Speed [{2}]"
+              .format(self.name, location, self.speed))
+
     def damaged(self, damage):
         print("{0} : {1} damaged.".format(self.name, damage))
         self.hp -= damage
-        print("{0} : Current Lvl of attacking is {1}.".format(self.name, self.hp))
+        print("{0} : Current Lvl of attacking is {1}."
+              .format(self.name, self.hp))
         if self.hp <= 0:
             print("{0} is destroyed.".format(self.name))
+
+
 """
 Using method overriding
 """
@@ -74,8 +76,9 @@ class Tank(AttackUnit):
 class Flyable:
     def __init__(self, flying_speed):
         self.flying_speed = flying_speed
+
     def fly(self, name, location):
-        print("{0} is flying toward {1}. Speed {2}".format(name, location, self.flying_speed))
+        print("{0} is flying toward {1} : Speed [{2}]".format(name, location, self.flying_speed))
 
 # Flyable Attack Unit
 class FlyableAttackUnit(AttackUnit, Flyable):
@@ -84,7 +87,6 @@ class FlyableAttackUnit(AttackUnit, Flyable):
         Flyable.__init__(self, flying_speed)
 
     def move(self, location): # Initializong move from Unit class - overriding
-        print("Flyable Unit is moving")
         self.fly(self.name, location)  
 
 # Another flyable attack unit Wraith that has a special skill called 'cloaking'
@@ -97,11 +99,11 @@ class Wraith(FlyableAttackUnit):
     def cloaking(self):
         # when it's cloaking mode
         if self.cloaked == True:
-            print("Clearing cloaking mode for {0}.".format(self.name))
+            print("Clearing Cloaking Mode for {0}.".format(self.name))
             self.cloaked == False
             # when it's NOT cloaking mode
         else:
-            print("Setting cloaking mode for {0}.".format(self.name))
+            print("Setting Cloaking Mode for {0}.".format(self.name))
             self.cloaked == True
 
 
