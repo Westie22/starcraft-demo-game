@@ -26,18 +26,24 @@ class Unit:
 Using method overriding
 """
 # Attack Unit
+
+
 class AttackUnit(Unit):
     def __init__(self, name, hp, speed, damage):
         Unit.__init__(self, name, hp, speed)
         self.damage = damage
 
     def attack(self, location):
-        print("Unit {0} is attacking from {1}. [Lvl. of attacking is {2}]".format(self.name, location, self.damage))
+        print("Unit {0} is attacking from {1}. [Lvl. of attacking is {2}]"
+              .format(self.name, location, self.damage))
 
 # Marine
+
+
 class Marine(AttackUnit):
     def __init__(self):
-        AttackUnit.__init__(self, "Marine", 40, 1, 5) # name, hp, speed, Lvl of attacking
+        # name, hp, speed, Lvl of attacking
+        AttackUnit.__init__(self, "Marine", 40, 1, 5)
 
     # Stimpack : increasing moving speed but hp level decreases -10
     def stimpack(self):
@@ -45,66 +51,87 @@ class Marine(AttackUnit):
             self.hp -= 10
             print("{0} is using stimpack. HP decrease by 10".format(self.name))
         else:
-            print("{0} is not able to use stimpack with lack of HP".format(self.name))
+            print("{0} is not able to use stimpack with lack of HP"
+                  .format(self.name))
 
 # Tank
+
+
 class Tank(AttackUnit):
-    # Siege mode : No ability to move, it sticks on the ground and attacking more powerfully
-    siege_developed = False # wether siege mode is developing (a class variable)
+    # Siege mode
+    # No ability to move, it sticks on the ground and attacking more powerfully
+    # wether siege mode is developing (a class variable)
+    siege_developed = False
 
     def __init__(self):
-        AttackUnit.__init__(self, "Tank", 150, 1, 35) # name, hp, speed, Lvl of attacking
-        self.siege_mode = False # (Easy) the siege mode
+        # name, hp, speed, Lvl of attacking
+        AttackUnit.__init__(self, "Tank", 150, 1, 35)
+        # (Easy) the siege mode
+        self.siege_mode = False
 
     # Siege Mode
     def set_siege_mode(self):
-        if Tank.siege_developed == False: # leaving the method when siege_mode is not developing
+        # leaving the method when siege_mode is not developing
+        if Tank.siege_developed:
             return
 
         # currently it's not siege_mode
-        if self.siege_mode == False:
+        if self.siege_mode:
             print("{0} : Switching to Siege Mode".format(self.name))
-            self.damage *= 2 # hp increases twice
-            self.siege_mode = True # Set siege mode
+            # hp increases twice
+            self.damage *= 2
+            # Set siege mode
+            self.siege_mode = True
         # currently it's siege_mode
         else:
             print("{0} : Clearing the Siege Mode".format(self.name))
-            self.damage /= 2 # hp decreases to half
-            self.siege_mode = False # Clear siege mode
+            # hp decreases to half
+            self.damage /= 2
+            # Clear siege mode
+            self.siege_mode = False
 
 # Flyable function class
+
+
 class Flyable:
     def __init__(self, flying_speed):
         self.flying_speed = flying_speed
 
     def fly(self, name, location):
-        print("{0} is flying toward {1} : Speed [{2}]".format(name, location, self.flying_speed))
+        print("{0} is flying toward {1} : Speed [{2}]"
+              .format(name, location, self.flying_speed))
 
 # Flyable Attack Unit
+
+
 class FlyableAttackUnit(AttackUnit, Flyable):
     def __init__(self, name, hp, damage, flying_speed):
-        AttackUnit.__init__(self, name, hp, 0, damage) # with flying speed, there is no speed on the ground, it sets as 0
+        AttackUnit.__init__(self, name, hp, 0, damage)
+        # with flying speed, there is no speed on the ground, it sets as 0
         Flyable.__init__(self, flying_speed)
+    # Initializong move from Unit class - overriding
 
-    def move(self, location): # Initializong move from Unit class - overriding
-        self.fly(self.name, location)  
-
+    def move(self, location):
+        self.fly(self.name, location)
 # Another flyable attack unit Wraith that has a special skill called 'cloaking'
+
 
 class Wraith(FlyableAttackUnit):
     def __init__(self):
-        FlyableAttackUnit.__init__(self, "Wraith", 80, 20, 5) # hp, Lvl of attacking, flying speed
-        self.cloaked = False # cloaking mode(cleared)
+        # hp, Lvl of attacking, flying speed
+        FlyableAttackUnit.__init__(self, "Wraith", 80, 20, 5)
+        # cloaking mode(cleared)
+        self.cloaked = False
 
     def cloaking(self):
         # when it's cloaking mode
-        if self.cloaked == True:
+        if self.cloaked:
             print("Clearing Cloaking Mode for {0}.".format(self.name))
-            self.cloaked == False
+            self.cloaked = False
             # when it's NOT cloaking mode
         else:
             print("Setting Cloaking Mode for {0}.".format(self.name))
-            self.cloaked == True
+            self.cloaked = True
 
 
 # Game start
@@ -112,11 +139,15 @@ def game_start():
     print("Start game!")
 
 # Game over
+
+
 def game_over():
-    print("[Player]: Good game!") 
+    print("[Player]: Good game!")
     print("[Player] left.")
 
 # Actual game starts
+
+
 game_start()
 
 # Create 3 Marines
@@ -163,7 +194,8 @@ for unit in attack_units:
 
 # All units damaged
 for unit in attack_units:
-    unit.damaged(randint(5, 20)) # receiving attacks randomly ( 5 ~ 20)
+    # receiving attacks randomly ( 5 ~ 20)
+    unit.damaged(randint(5, 20))
 
 
 # game over
