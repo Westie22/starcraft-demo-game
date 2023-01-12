@@ -41,9 +41,9 @@ class Marine(AttackUnit):
     def stimpack(self):
         if self.hp > 10:
             self.hp -= 10
-            print(f"{name} is using stimpack. HP decrease by 10")
+            print("{0} is using stimpack. HP decrease by 10")
         else:
-            print(f"{name} is not able to use stimpack with lack of HP")
+            print("{0} is not able to use stimpack with lack of HP")
 
 # Tank
 class Tank(AttackUnit):
@@ -61,12 +61,12 @@ class Tank(AttackUnit):
 
         # currently it's not siege_mode
         if self.siege_mode == False:
-            print(f"{name} : Switching to Siege Mode")
+            print("{0} : Switching to Siege Mode".format(self.name))
             self.damage *= 2 # hp increases twice
             self.siege_mode = True # Set siege mode
         # currently it's siege_mode
         else:
-            print(f"{name} : Clearing the Siege Mode")
+            print("{0} : Clearing the Siege Mode".format(self.name))
             self.damage /= 2 # hp decreases to half
             self.siege_mode = False # Clear siege mode
 
@@ -97,11 +97,11 @@ class Wraith(FlyableAttackUnit):
     def cloaking(self):
         # when it's cloaking mode
         if self.cloaked == True:
-            print(f"Clearing cloaking mode for {name}.")
+            print("Clearing cloaking mode for {0}.")
             self.cloaked == False
             # when it's NOT cloaking mode
         else:
-            print(f"Setting cloaking mode for {name}.")
+            print("Setting cloaking mode for {0}.")
             self.cloaked == True
 
 
@@ -142,5 +142,27 @@ attack_units.append(w1)
 for unit in attack_units:
     unit.move("2 O'clock")
 
+# Developing Tank Siege mode
+Tank.siege_developed = True
+print("Developing Tank Siege mode is complete.")
+
+# Ready for all to be attacking mode
+for unit in attack_units:
+    if isinstance(unit, Marine):  # Marine's instance then stimpack
+        unit.stimpack()
+    elif isinstance(unit, Tank):  # Tank's instance then siege mode
+        unit.set_siege_mode()
+    elif isinstance(unit, Wraith):  # Wraith' instance then cloaking
+        unit.cloaking()
+
+# All units attack
+for unit in attack_units:
+    unit.attack("1 O'clock")
+
+# All units damaged
+for unit in attack_units:
+    unit.damaged(randint(5, 20)) # receiving attacks randomly ( 5 ~ 20)
 
 
+# game over
+game_over()
