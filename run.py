@@ -3,6 +3,12 @@ from random import *
 
 
 class Unit:
+    """
+    Basic Unit class that whenever an unit created,
+    print out of which unit has been created.
+    With move(), it print out of Unit's movement status.
+    Damage() excluding AttackUnit.
+    """
     def __init__(self, name, hp, speed):
         self.name = name
         self.hp = hp
@@ -136,14 +142,19 @@ class Wraith(FlyableAttackUnit):
 
 # Game start
 def game_start():
-    print("Start game!")
+    print("-" * 31)
+    print("Welcome to StarCraft Demo Game!")
+    print("Let's strat the game!!")
+    print("-" * 31)
 
 # Game over
 
 
 def game_over():
-    print("[Player]: Good game!")
-    print("[Player] left.")
+    print("-" * 25)
+    print("[Player] : Good game!")
+    print("[Player] : Left the game")
+    print("-" * 25)
 
 # Actual game starts
 
