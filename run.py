@@ -64,9 +64,11 @@ class Marine(AttackUnit):
 
 
 class Tank(AttackUnit):
-    # Siege mode
-    # No ability to move, it sticks on the ground and attacking more powerfully
-    # wether siege mode is developing (a class variable)
+    """
+    Siege mode
+    No ability to move, it sticks on the ground and attacking more powerfully
+    wether siege mode is developing (a class variable)
+    """
     siege_developed = False
 
     def __init__(self):
@@ -130,11 +132,11 @@ class Wraith(FlyableAttackUnit):
         self.cloaked = False
 
     def cloaking(self):
-        # when it's cloaking mode
+        # when it's a cloaking mode
         if self.cloaked:
             print("Clearing Cloaking Mode for {0}.".format(self.name))
             self.cloaked = False
-            # when it's NOT cloaking mode
+            # when it's NOT a cloaking mode
         else:
             print("Setting Cloaking Mode for {0}.".format(self.name))
             self.cloaked = True
@@ -151,10 +153,10 @@ def game_start():
 
 
 def game_over():
-    print("-" * 25)
-    print("[Player] : Good game!")
+    print("-" * 52)
+    print("[Player] : Too much damaged, but it was a good game!")
     print("[Player] : Left the game")
-    print("-" * 25)
+    print("-" * 52)
 
 # Actual game starts
 
