@@ -209,7 +209,8 @@ for unit in attack_units:
 for unit in attack_units:
     # receiving attacks randomly ( 5 ~ 20)
     unit.damaged(randint(5, 20))
-
+# Quit the game
+x = input("Press any key to quit the game: \n")
 
 # game over
 game_over()
