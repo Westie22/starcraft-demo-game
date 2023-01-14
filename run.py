@@ -186,7 +186,7 @@ attack_units.append(w1)
 
 # All units are moving
 for unit in attack_units:
-    unit.move("2 O'clock")
+    unit.move("1 O'Clock")
 
 # Developing Tank Siege mode
 Tank.siege_developed = True
@@ -203,7 +203,7 @@ for unit in attack_units:
 
 # All units attack
 for unit in attack_units:
-    unit.attack("1 O'clock")
+    unit.attack("1 O'Clock")
 
 # All units damaged
 for unit in attack_units:
