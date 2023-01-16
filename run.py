@@ -166,7 +166,7 @@ def game_over():
 
 game_start()
 
-create_unite_input = input("Press Enter to create your Units: \n")
+create_units_input = input("Press Enter to create your Units, Tanks, and Wraith: \n")
 # Create 3 Marines
 m1 = Marine()
 m2 = Marine()
@@ -174,13 +174,11 @@ m3 = Marine()
 print("-" * 23)
 
 # Create 2 Tanks
-create_tank_input = input("Press Enter to create Tank: \n")
 t1 = Tank()
 t2 = Tank()
 print("-" * 22)
 
 # Create 1 Wraith
-create_wraith_input = input("Press Enter to create Wraith: \n")
 w1 = Wraith()
 print("-" * 23)
 
