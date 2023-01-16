@@ -17,7 +17,7 @@ This project will only show upto creating Units, Flyable Units, which both can a
 ![alt text](media/starcraft_game_design.png)
 
 * These child classes of Marine, Tank, and Wraith are defined different skills of each unit as methods, and general actions such as attack, movement and damage are defined and used in the parent classes through inheritance.
-* Since Flyable Attack units do not move through the ground, but move through the air, it overrides the Unit class's move() method to call Flyable's fly() mothod and redefined.
+* Since Flyable Attack units do not move through the ground, but move through the air, it overrides the Unit class's move() method to call Flyable's fly() method and redefined.
 * With this structure, all units can be moved without distinction between ground and air via the move() method.
 
 
