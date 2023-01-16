@@ -48,6 +48,10 @@ This project will only show upto creating Units, Flyable Units, which both can a
 * Graphic/motion can be added
 
 ## Data Model
+I decided to use a online demo game as my model. The game creates Units, Tanks, and Wraith to be ready to attck the enemies with specific modes and skill s that could make you stronger.
+
+As this game should be played by more than 1 player, can be cooperated online, this demo game is only introducing about the game.
+
 ## Testing
 I have manually tested this project as follow:
 * Passed the code throught a PEP8 Linter and confirmed there are no problems
