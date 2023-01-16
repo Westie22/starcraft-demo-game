@@ -1,6 +1,6 @@
 # StarCraft Demo Game
 
-Welcome to [StarCraft Demo Game](https://starcraft-demo-game.herokuapp.com/) website!
+Welcome to [StarCraft Demo Game] website!
 As well known StarCraft game is the one of the most popular online games across the world, and I wanted to create the basic concept of the game.
 This project shows how diversities of Units can be created, moving and attacking with their own specified skills.
 
