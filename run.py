@@ -1,4 +1,6 @@
 from random import *
+player_input = input("Press Enter to play the game!!: \n")
+
 # General Unit
 
 
@@ -141,39 +143,46 @@ class Wraith(FlyableAttackUnit):
             print("Setting Cloaking Mode for {0}.".format(self.name))
             self.cloaked = True
 
-
 # Game start
+
+
 def game_start():
-    print("-" * 31)
+    print("=" * 31)
     print("Welcome to StarCraft Demo Game!")
     print("Let's strat the game!!")
-    print("-" * 31)
+    print("=" * 31)
 
 # Game over
 
 
 def game_over():
-    print("-" * 52)
+    print("=" * 52)
     print("[Player] : Too much damaged, but it was a good game!")
     print("[Player] : Left the game")
-    print("-" * 52)
+    print("=" * 52)
 
 # Actual game starts
 
 
 game_start()
 
+create_unite_input = input("Press Enter to create your Units: \n")
 # Create 3 Marines
 m1 = Marine()
 m2 = Marine()
 m3 = Marine()
+print("-" * 23)
 
 # Create 2 Tanks
+create_tank_input = input("Press Enter to create Tank: \n")
 t1 = Tank()
 t2 = Tank()
+print("-" * 22)
 
 # Create 1 Wraith
+create_wraith_input = input("Press Enter to create Wraith: \n")
 w1 = Wraith()
+print("-" * 23)
 
 # General units management (all created ones avbove, append)
 attack_units = []
@@ -185,10 +194,13 @@ attack_units.append(t2)
 attack_units.append(w1)
 
 # All units are moving
+moving_input = input("Press Enter to move your weapons: \n")
 for unit in attack_units:
     unit.move("1 O'Clock")
+print("-" * 45)
 
 # Developing Tank Siege mode
+mode_input = input("Press Enter to set special mode & attacking: \n")
 Tank.siege_developed = True
 print("Developing Tank Siege mode is complete.")
 
@@ -209,6 +221,7 @@ for unit in attack_units:
 for unit in attack_units:
     # receiving attacks randomly ( 5 ~ 20)
     unit.damaged(randint(5, 20))
+
 # Quit the game
 x = input("Press any key to quit the game: \n")
 
