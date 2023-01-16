@@ -1,10 +1,10 @@
 # StarCraft Demo Game
 
-Welcome to [StarCraft Demo Game]() website!
+Welcome to [StarCraft Demo Game](https://starcraft-demo-game.herokuapp.com/) website!
 As well known StarCraft game is the one of the most popular online games across the world, and I wanted to create the basic concept of the game.
 This project shows how diversities of Units can be created, moving and attacking with their own specified skills.
 
-[Here is the live version of my project]()
+[Here is the live version of my project](https://starcraft-demo-game.herokuapp.com/)
 
 ## What is StarCraft Game & How to play?
 StarCraft is a war game of these three races, Terran(Human exiled from Earth), the Zerg(Monster) and Protoss(Alien). We are supposed to be a Terran
