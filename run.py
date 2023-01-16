@@ -166,7 +166,7 @@ def game_over():
 
 game_start()
 
-create_units_input = input("Press Enter to create your Units, Tanks, and Wraith: \n")
+create_units_input = input("Press Enter to create your Units, Tanks, and Wraith!: \n")
 # Create 3 Marines
 m1 = Marine()
 m2 = Marine()
@@ -192,7 +192,7 @@ attack_units.append(t2)
 attack_units.append(w1)
 
 # All units are moving
-moving_input = input("Press Enter to move your weapons: \n")
+moving_input = input("Press Enter to move your Units, Tanks, and Wraith!: \n")
 for unit in attack_units:
     unit.move("1 O'Clock")
 print("-" * 45)
